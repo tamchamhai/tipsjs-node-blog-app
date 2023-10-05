@@ -10,15 +10,18 @@ app.use(helmet())
 app.use(compression())
 
 // init DB
+require('./dbs/init.mongodb')
+
+// app.use()
 
 // init routes
 app.get('/', (req, res, next) => {
-  const strCompress = 'hello world!!! '
+    const strCompress = 'hello world!!! '
 
-  return res.status(200).json({
-    message: 'Hello world',
-    metadata: strCompress.repeat(1000)
-  })
+    return res.status(200).json({
+        message: 'Hello world',
+        metadata: strCompress.repeat(1000),
+    })
 })
 
 // handle errors
