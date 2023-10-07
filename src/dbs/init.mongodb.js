@@ -1,9 +1,10 @@
 'use strict'
 
 const mongoose = require('mongoose')
-const { countConnect } = require('../helpers/check.connect')
+const config = require('../configs/config.mongodb')
+const { countConnect, checkOverload } = require('../helpers/check.connect')
 
-const connectString = `mongodb://localhost:27017/phofullstack_dev`
+const connectString = config.db.path
 
 class Database {
     constructor() {
@@ -12,6 +13,7 @@ class Database {
 
     // connect
     connect(type = 'mongodb') {
+        console.log('config db data: ' , config)
         if (1 === 1) {
             // for dev
             mongoose.set('debug', true)
@@ -19,13 +21,21 @@ class Database {
         }
 
         mongoose
-            .connect(connectString)
-            .then((_) => console.log(`You Connected to Mongodb Like a PRO`, countConnect()))
-            .catch((error) => console.log('Error Connect!'))
+            .connect(connectString, {
+                maxPoolSize: 100,
+            })
+            .then((_) => {
+                checkOverload()
+                console.log(
+                    `You Connected to Mongodb Like a PRO`,
+                    countConnect()
+                )
+            })
+            .catch((error) => console.log('Error Connect!', error))
     }
 
     static getInstance() {
-        if(!Database.instance) {
+        if (!Database.instance) {
             Database.instance = new Database()
         }
         return Database.instance

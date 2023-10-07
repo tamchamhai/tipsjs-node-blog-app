@@ -1,41 +1,46 @@
-# Project Name: [Your Project Name]
+# Project Name: Learn NodeJS By Create A Blog App 
 
 ## Overview
-Provide a brief overview of the project, its purpose, and the technologies used.
+This project aim to develop my BE skills. It uses Nodejs, Express, MongoDB.
 
 ## Folder Structure
 Explain the organization of the project's folders and files.
 
 /project-root
 |-- /src
-| |-- /controllers
-| | |-- [Controller files]
-| |
-| |-- /models
-| | |-- [Model files]
-| |
-| |-- /routes
-| | |-- [Route files]
-| |
-| |-- /middlewares
-| | |-- [Middleware files]
-| |
-| |-- app.js
-| |-- config.js
-| |-- ...
+|   |-- /configs
+|   |   |-- [configs files]
+|   |
+|   |-- /controllers
+|   |   |-- [Controller files]
+|   |
+|   |-- /dbs
+|   |   |-- init.mongodb.js
+|   |   |-- init.mongodb.lv0.js
+|   |
+|   |-- /docs
+|   |   |-- index.md
+|   |
+|   |-- /helpers
+|   |   |-- check.connect.js
+|   |
+|   |-- /models
+|   |   |-- [Model files]
+|   |
+|   |-- /services
+|   |   |-- [services files]
+|   |
+|   |-- /utils
+|   |   |-- app.js
+|   |   |-- .env
 |
-|-- /test
-| |-- [Test files]
-|
-|-- /config
-| |-- database.js
-| |-- ...
-|
-|-- /scripts
-| |-- [Script files]
-|
+|-- .gitignore
+|-- .prettierrc
+|-- package-lock.json
 |-- package.json
+|-- server.js
 |-- ...
+
 
 
 ## Controllers
@@ -60,6 +65,21 @@ Describe what models are, and how they interact with the database.
   - [Usage]
 - ...
 
+## Helpers
+Explain how routes are defined and how they connect controllers to incoming requests.
+
+- **[Route Name 1]**
+  - [Description]
+  - [Usage]
+- ...
+
+## DBs
+This folder contain all config for db.
+- **init.mongodb.js**
+  - Description: This file describe how to config to connect to db use Singleton pattern to ensure that only one instance of the Database class is created. Prevent make too much connection to DB can cause to crash DB. 
+  - [Usage]
+- ...
+
 ## Routes
 Explain how routes are defined and how they connect controllers to incoming requests.
 
@@ -73,13 +93,18 @@ Explain how routes are defined and how they connect controllers to incoming requ
 
 ## Middlewares
 Describe the purpose of middlewares and how they can be used in request/response handling.
-
 - **[Middleware Name 1]**
   - [Description]
   - [Usage]
 - **[Middleware Name 2]**
   - [Description]
   - [Usage]
+- ...
+
+## Utils
+Describe the purpose of middlewares and how they can be used in request/response handling.
+- **constants.js**
+  - Description: Contain all constant variable in project.
 - ...
 
 ## Configuration Files
@@ -99,6 +124,12 @@ Provide information about any custom scripts that are included in the project.
   - [Description]
   - [Usage]
 - ...
+
+## Git commit format
+
+## server.js
+- This file contain listen port to start server, listening signals.
+
 
 ## Testing
 Briefly mention how testing is handled and where test files are located.
