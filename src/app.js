@@ -15,14 +15,7 @@ require('./dbs/init.mongodb')
 // app.use()
 
 // init routes
-app.get('/', (req, res, next) => {
-    const strCompress = 'hello world!!! '
-
-    return res.status(200).json({
-        message: 'Hello world',
-        metadata: strCompress.repeat(1000),
-    })
-})
+app.use('/', require('./routes'))
 
 // handle errors
 
